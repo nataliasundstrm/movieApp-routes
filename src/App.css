@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #313131;
+}
+
+header,
+footer {
+    background-color: #121212;
+
+}
+
+header,
+footer,
+section {
+    display: grid;
+    grid-template-columns: minmax(30px, 1fr) [inner-start] minmax(0, 70rem) [inner-end] minmax(30px, 1fr);
+}
+
+section {
+    padding: 3rem 0 3rem 0;
+}
+
+header > div,
+footer > div,
+section > div {
+    grid-column: inner;
+}
