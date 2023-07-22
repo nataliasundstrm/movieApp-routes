@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom';
 
 const MovieCard = styled(motion.div)`
   position: relative; 
@@ -27,25 +28,38 @@ const MovieImg = styled.div`
 const MovieContent = styled.div`
   position: absolute;
   bottom: 0;
+  padding-bottom: 1rem;
 
   h6,
   p {
     margin: 0;
     font-family: poppins;
+    color: #FFFFFF;
   }
   
   h6 {
     font-size: 16px;
     padding: 0;
     font-weight: 600;
-    color: #FFFFFF;
   }
   
   p {
     font-size: 12px;
     margin: 0;
-    padding: 0.5rem 0 1rem 0;
+    padding: 0.5rem 0 0.5rem 0;
     font-weight: 400;
+  }
+  
+  `;
+  
+  const MovieLink = styled(Link)`
+  color: #ffffff;
+  font-size: 12px;
+  font-family: poppins;
+  text-decoration: none;
+  font-weight: 500;
+  
+  &:hover {
     color: #F5C519;
   }
 `;
@@ -69,10 +83,9 @@ const Movie = ({movie}) => {
       </MovieImg>
 
       <MovieContent>
-        <h6>
-          {characters(movie.Title, 20)}
-        </h6>
+        <h6>{characters(movie.Title, 22)}</h6>
         <p>Year: {movie.Year} | Type: {movie.Type}</p>
+        <MovieLink to={`/clicked-movie/${movie.imdbID}`}>Read more</MovieLink>
       </MovieContent>
     </MovieCard>
   )

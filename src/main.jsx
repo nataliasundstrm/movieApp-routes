@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         element: <MovieAPI />,
       },
       {
-        path: "/clicked-movie",
+        path: "/clicked-movie/:id",
         element: <ClickedMovie />,
       },
     ]
