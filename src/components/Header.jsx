@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom';
 
 const HeaderContent = styled.div`
     height: 96px;
@@ -8,81 +8,56 @@ const HeaderContent = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    div > a, 
-    li > a {
-        font-family: poppins; 
+   a {
+      text-decoration: none;
+      font-family: poppins;
+      font-size: 16px;
+      padding: 0 1rem 0 0;
+      
+    } 
+    
+    & > div > a {
+      font-size: 25px;
+      font-weight: 600;
+      color: #F5C519;
     }
-  
-    div > a {
-        font-size: 31.25px;
-        color: #F5C519;
-        text-decoration: none; 
-        font-weight: 600;
+    
+    & > nav > a {
+      color: #ffffff;
+    }
+    
+    & > nav > a:last-of-type {
+      padding: 0;
     }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin; 0;
-        display: flex;
+    & > nav > a:hover {
+      color: #F5C519;
     }
-  
-    li {
-        font-size: 16px;
-        padding-left: 0.5rem;
-    }
-  
-    li > a {
-        text-decoration: none;
-        color: #ffffff;
-    }
-  
 `;
 
-const menuLinks = [
-    {
-        link: 'Home', 
-        hRef: 'https://www.google.com/', 
-        id: 1
-    },
-    {
-        link: 'Favorites',
-        hRef: 'https://caiacosmetics.se/', 
-        id: 2
-    },
-    {
-        link: 'Search', 
-        hRef: 'https://adsgn.se/', 
-        id: 3
-    }
+const navLinks = [
+  {linkName: 'Home', hRef: '/'},
+  {linkName: 'Favorites', hRef: '/'},
+  {linkName: 'Search', hRef: '/'}
 ]
 
 const Header = () => {
   return (
     <header>
-      <div>
         <HeaderContent>
           <div>
-            <a href="">IMDb</a>
+            <Link to='/'>IMdb</Link>
           </div>
 
-          <ul>
-            {menuLinks.map(menuLink => (
-              <li key={menuLink.id}>
-                <motion.a
-                  whileHover={{
-                    color: '#F5C519' 
-                  }}
-                  href={menuLink.hRef}
-                >
-                  {menuLink.link}
-                </motion.a>
-              </li>
-            ))}
-          </ul>
+          <nav>
+            {
+              navLinks.map(navLink => (
+                <Link to={navLink.hRef}>{navLink.linkName}</Link>
+              ))
+            }
+          </nav>
 
         </HeaderContent>
-      </div>
     </header>
   )
 }

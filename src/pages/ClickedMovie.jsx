@@ -13,32 +13,45 @@ const MovieContent = styled.section`
 `;
   
   const MovieText = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
+    h4,
+    p {
+      font-family: poppins;
+      margin: 0;
+      color: #ffffff;
+    }
 
-  h4,
-  p {
-    font-family: poppins;
-    margin: 0;
-    color: #ffffff;
-  }
+    h4 {
+      font-size: 25px;
+      font-weight: 600;
+      margin: 0;
+      padding: 0 0 1rem 0;
+    }
 
-  h4 {
-    font-size: 25px;
-    font-weight: 600;
-    margin: 0;
-    padding: 0 0 1rem 0;
-  }
+    p {
+      font-size: 16px;
+      font-weight: 400:
+    }
 
-  p {
-    font-size: 16px;
-  }
-  
-  strong {
-    font-weight: 500;
-  }
+    & > p:nth-of-type(1) {
+      padding: 0 0 1rem 0;
+    }
+
+    & > p:nth-of-type(2),
+    & > p:nth-of-type(3) {
+      padding: 0 0 0.25rem 0;
+    }
+
+    & > p:nth-of-type(4) {
+      padding: 0 0 3rem 0;
+    }
+    
+    b {
+      font-weight: 500;
+    }
 `;
 
 const MovieGenre = styled.div`
@@ -50,24 +63,12 @@ const MovieGenre = styled.div`
   padding: 0.5rem;
   width: 100%;
   max-width: 310px;
-  margin: 1rem 0 1rem 0;
-
-  p {
+  margin: 0 0 1rem 0;
+  
+  & > p {
     color: #000000;
     font-weight: 500;
   }
-`;
-
-const MovieWriter = styled.p`
-  padding: 0 0 0.25rem 0;
-`;
-
-const MovieActors = styled.p`
-  padding: 0 0 0.25rem 0;
-`;
-
-const MovieAbout = styled.p`
-  padding: 0 0 3rem 0;
 `;
 
 const BackLink = styled(Link)`
@@ -109,17 +110,15 @@ const ClickedMovie = () => {
     <MovieContent>
         <img src={movie.Poster} alt="" />
         <MovieText>
-          <div>
             <h4>{movie.Title}</h4>
-            <p><strong>Released:</strong> {movie.Released} | <strong>Rating:</strong> {movie.imdbRating} / 10</p>
+            <p><b>Released:</b> {movie.Released} | <b>Rating:</b> {movie.imdbRating} / 10</p>
             <MovieGenre>
               <p>{movie.Genre}</p>
             </MovieGenre>
-            <MovieWriter><strong>Writer:</strong> {movie.Writer}</MovieWriter>
-            <MovieActors><strong>Actors:</strong> {movie.Actors}</MovieActors>
-            <MovieAbout><strong>About:</strong> {movie.Plot}</MovieAbout>
+            <p><b>Writer:</b> {movie.Writer}</p> 
+            <p><b>Actors:</b> {movie.Actors}</p>
+            <p><b>About:</b> {movie.Plot}</p>
             <BackLink to="/">&larr; Back</BackLink>
-          </div>
         </MovieText>
 
     </MovieContent>
