@@ -3,11 +3,6 @@ import Movie from './Movie'
 import styled from 'styled-components'
 import { FavoritesContext } from '../context/FavoritesContext';
 
-const Empty_list = styled.div`
-  max-height: 100%;
-  height: 100vh;
-`
-
 const Movie_list = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
@@ -21,8 +16,8 @@ const MovieList = ({ movies, hide }) => {
 
   if (hide) {
     return (
-      <Empty_list>
-      </Empty_list>
+      <div style={{maxHeight: '100%', height: '100vh'}}>
+      </div>
     )
   }
 

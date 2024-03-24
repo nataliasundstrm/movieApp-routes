@@ -82,7 +82,7 @@ const Movie = ({ movie }) => {
       }}
     >
       <MovieImg>
-        <img src={movie ? movie.Poster : favorite.Poster} alt="" />
+        <img src={movie.Poster} alt="" />
       </MovieImg>
 
       <MovieContent>
