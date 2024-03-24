@@ -15,18 +15,28 @@ const FormContainer = styled.div`
   }
 `;
 
-const Search = styled.form`
+const Search = styled.form` 
   display: flex;
-  justify-content: space-evenly;
   padding: 0 0 1rem 0;
   margin: 0;
+  max-width: 100%;
+  width: 70rem;
+
+  input {
+    max-width: 980px;
+    width: 100%;
+  }
+
+  select {
+    max-width: 140px;
+    width: 100%;
+  }
 
   input,
   select {
-    width: 100%;
-    padding: 1rem; 
+    padding: 1rem 2rem 1rem 2rem; 
     border: 0;
-    border-radius: 0.25rem;
+    border-radius: 2rem;
     background-color: #121212;
     color: #FFFFFF;
     font-size: 16px;
@@ -35,7 +45,7 @@ const Search = styled.form`
   }
   
   input {
-    margin: 0 1rem 0 0;
+    margin: 0 0.5rem 0 0;
   }
 
 `;

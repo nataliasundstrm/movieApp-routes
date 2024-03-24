@@ -46,7 +46,7 @@ const MovieContent = styled.section`
     }
 
     & > p:nth-of-type(4) {
-      padding: 0 0 3rem 0;
+      padding: 0 0 1rem 0;
     }
     
     b {
@@ -56,18 +56,19 @@ const MovieContent = styled.section`
 
 const MovieGenre = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #F5C519;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  width: 100%;
-  max-width: 310px;
-  margin: 0 0 1rem 0;
+  padding-bottom: 1rem;
   
   & > p {
-    color: #000000;
+    background-color: #F5C519;
+    color: #000;
     font-weight: 500;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  & > p:nth-of-type(1) {
+    margin: 0;
   }
 `;
 
@@ -103,8 +104,9 @@ const ClickedMovie = () => {
     useEffect(() => {
       fetchMovie()
     }, [])
-  
 
+    let genre = movie?.Genre;
+    let splitGenre = genre?.split(",")
 
   return (
     <MovieContent>
@@ -112,15 +114,20 @@ const ClickedMovie = () => {
         <MovieText>
             <h4>{movie.Title}</h4>
             <p><b>Released:</b> {movie.Released} | <b>Rating:</b> {movie.imdbRating} / 10</p>
+            
             <MovieGenre>
-              <p>{movie.Genre}</p>
+              {splitGenre?.map((value, index) => {
+                return <p key={index}>{value}</p>
+              })}
             </MovieGenre>
+
             <p><b>Writer:</b> {movie.Writer}</p> 
             <p><b>Actors:</b> {movie.Actors}</p>
             <p><b>About:</b> {movie.Plot}</p>
-            <BackLink to="/">&larr; Back</BackLink>
-        </MovieText>
 
+            <BackLink to="/search">&larr; Back</BackLink>
+            
+        </MovieText>
     </MovieContent>
   )
 }

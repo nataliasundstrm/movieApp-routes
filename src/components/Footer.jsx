@@ -19,7 +19,7 @@ const Footer = () => {
     <footer>
         <div>
         <FooterContent>
-            <p>Copyright &copy; 2023 IMDb</p>
+            <p>Copyright &copy; 2024 Natalia Sundström</p>
         </FooterContent>
         </div>
     </footer>

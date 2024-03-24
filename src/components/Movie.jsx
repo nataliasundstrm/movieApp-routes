@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import Favorite from './Favorite';
+import { FavoritesContext } from '../context/FavoritesContext';
 
 const MovieCard = styled(motion.div)`
   position: relative; 
@@ -50,9 +52,9 @@ const MovieContent = styled.div`
     font-weight: 400;
   }
   
-  `;
-  
-  const MovieLink = styled(Link)`
+`;
+
+const MovieLink = styled(Link)`
   color: #ffffff;
   font-size: 12px;
   font-family: poppins;
@@ -64,11 +66,12 @@ const MovieContent = styled.div`
   }
 `;
 
-const Movie = ({movie}) => {
-
+const Movie = ({ movie }) => {
   const characters = (title, numbers) => {
     return title?.length > numbers ? title.substr(0, numbers - 1) + "..." : title;
   };
+
+  const {addToFavorites, handleFavorites } = useContext(FavoritesContext)
 
   return (
     <MovieCard
@@ -79,7 +82,7 @@ const Movie = ({movie}) => {
       }}
     >
       <MovieImg>
-        <img src={movie.Poster} alt="" />
+        <img src={movie ? movie.Poster : favorite.Poster} alt="" />
       </MovieImg>
 
       <MovieContent>
@@ -87,6 +90,8 @@ const Movie = ({movie}) => {
         <p>Year: {movie.Year} | Type: {movie.Type}</p>
         <MovieLink to={`/clicked-movie/${movie.imdbID}`}>Read more</MovieLink>
       </MovieContent>
+
+      <Favorite movie={movie} handleFavorites={handleFavorites} addToFavorites={addToFavorites} />
     </MovieCard>
   )
 }

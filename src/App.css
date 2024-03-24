@@ -21,8 +21,16 @@ section {
     grid-template-columns: minmax(30px, 1fr) [inner-start] minmax(0, 70rem) [inner-end] minmax(30px, 1fr);
 }
 
+header {
+    height: 96px;
+    position: sticky;
+    top: 0;
+    z-index: 2001;
+}
+
 section {
     padding: 3rem 0 3rem 0;
+    z-index: 2002;
 }
 
 header > div,

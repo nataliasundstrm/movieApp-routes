@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 
 const HeaderContent = styled.div`
-    height: 96px;
     display: flex; 
     justify-content: space-between;
     align-items: center;
@@ -36,9 +35,9 @@ const HeaderContent = styled.div`
 `;
 
 const navLinks = [
-  {linkName: 'Home', hRef: '/'},
-  {linkName: 'Favorites', hRef: '/'},
-  {linkName: 'Search', hRef: '/'}
+  {linkName: 'Home', hRef: '/', id: 1},
+  {linkName: 'Favorites', hRef: '/favorite-movies', id: 2},
+  {linkName: 'Search', hRef: '/search', id: 3}
 ]
 
 const Header = () => {
@@ -46,13 +45,18 @@ const Header = () => {
     <header>
         <HeaderContent>
           <div>
-            <Link to='/'>IMdb</Link>
+            <Link to='/'>IMDb</Link>
           </div>
 
           <nav>
             {
               navLinks.map(navLink => (
-                <Link to={navLink.hRef}>{navLink.linkName}</Link>
+                <Link 
+                  to={navLink.hRef} 
+                  key={navLink.id}
+                >
+                  {navLink.linkName}
+                </Link>
               ))
             }
           </nav>
