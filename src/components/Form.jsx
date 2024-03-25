@@ -38,7 +38,7 @@ const Search = styled.form`
     border: 0;
     border-radius: 2rem;
     background-color: #121212;
-    color: #FFFFFF;
+    color: #FFF;
     font-size: 16px;
     font-family: poppins;
     font-weight: 400;

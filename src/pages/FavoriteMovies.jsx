@@ -1,7 +1,13 @@
 import React, { useContext } from 'react'
 import MovieList from '../components/MovieList';
 import { FavoritesContext } from '../context/FavoritesContext';
+import styled from 'styled-components';
 
+const Container = styled.div`
+  max-height: 100%;
+  height: calc(100vh - 441px);
+
+`
 
 const FavoriteMovies = () => {
 
@@ -9,9 +15,9 @@ const FavoriteMovies = () => {
 
     if (favorites == '') {
         return (
-            <div style={{maxHeight: '100%', height: '100vh'}}>
-                <p style={{color: '#F5C519', fontFamily: 'poppins'}}>You have no movies, series or games saved yet...</p>
-            </div>
+            <Container>
+                <p >You have no movies, series or games saved yet...</p>
+            </Container>
         )
     } 
 

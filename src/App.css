@@ -6,6 +6,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #313131;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 16px; 
+    color: #FFF;
 }
 
 header,

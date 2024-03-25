@@ -19,9 +19,8 @@ const MovieContent = styled.section`
 
     h4,
     p {
-      font-family: poppins;
       margin: 0;
-      color: #ffffff;
+      color: #fff;
     }
 
     h4 {

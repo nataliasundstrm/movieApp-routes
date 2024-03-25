@@ -9,8 +9,6 @@ const HeaderContent = styled.div`
 
    a {
       text-decoration: none;
-      font-family: poppins;
-      font-size: 16px;
       padding: 0 1rem 0 0;
       
     } 

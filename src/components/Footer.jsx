@@ -6,12 +6,6 @@ const FooterContent = styled.div`
     justify-content: center;
     align-items: center;
     padding: 6rem 0 6rem 0;
-
-    p {
-        font-family: poppins;
-        color: #ffffff;
-        font-size: 16px;
-    }
 `;
 
 const Footer = () => {

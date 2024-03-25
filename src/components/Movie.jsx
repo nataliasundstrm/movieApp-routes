@@ -7,7 +7,8 @@ import { FavoritesContext } from '../context/FavoritesContext';
 
 const MovieCard = styled(motion.div)`
   position: relative; 
-  height: 440px; 
+  height: 440px;
+  max-width: 268px;
   width: 100%;
   background-color: #121212;
   padding: 1rem;
@@ -31,6 +32,13 @@ const MovieContent = styled.div`
   position: absolute;
   bottom: 0;
   padding-bottom: 1rem;
+  width: calc(100% - 28px);
+
+  div {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between; 
+  }
 
   h6,
   p {
@@ -65,7 +73,6 @@ const MovieLink = styled(Link)`
     color: #F5C519;
   }
 `;
-
 const Movie = ({ movie }) => {
   const characters = (title, numbers) => {
     return title?.length > numbers ? title.substr(0, numbers - 1) + "..." : title;
@@ -86,12 +93,14 @@ const Movie = ({ movie }) => {
       </MovieImg>
 
       <MovieContent>
-        <h6>{characters(movie.Title, 22)}</h6>
+        <div>
+          <h6>{characters(movie.Title, 20)}</h6>
+          <Favorite movie={movie} handleFavorites={handleFavorites} addToFavorites={addToFavorites} />
+        </div>
         <p>Year: {movie.Year} | Type: {movie.Type}</p>
         <MovieLink to={`/clicked-movie/${movie.imdbID}`}>Read more</MovieLink>
       </MovieContent>
 
-      <Favorite movie={movie} handleFavorites={handleFavorites} addToFavorites={addToFavorites} />
     </MovieCard>
   )
 }

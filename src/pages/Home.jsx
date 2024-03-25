@@ -1,10 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  max-height: 100%;
+  height: calc(100vh - 441px);
+`
 
 const Home = () => {
   return (
-    <div style={{maxHeight: '100%', height: '100vh'}}>
-        <p style={{fontFamily: 'poppins', color: '#F5C519'}}>Homepage in progress...</p>
-    </div>
+    <Container>
+        <p>Homepage in progress...</p>
+    </Container>
   )
 }
 
